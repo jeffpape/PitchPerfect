@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JeY-lv-mLg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -200,16 +201,16 @@
                                 <exclude reference="MzD-RQ-6TO"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="T6y-q8-Ti2"/>
+                                <exclude reference="ruv-mN-yCD"/>
+                                <exclude reference="PJn-6S-0mD"/>
+                                <exclude reference="RNK-nz-BYN"/>
                                 <exclude reference="QNH-z2-eez"/>
                                 <exclude reference="iKv-os-N3f"/>
                                 <exclude reference="KZB-bw-HCQ"/>
                                 <exclude reference="VHF-5N-hXr"/>
                                 <exclude reference="7o1-Nk-kl2"/>
                                 <exclude reference="vhW-dl-NTT"/>
-                                <exclude reference="PJn-6S-0mD"/>
-                                <exclude reference="RNK-nz-BYN"/>
-                                <exclude reference="T6y-q8-Ti2"/>
-                                <exclude reference="ruv-mN-yCD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -221,16 +222,16 @@
                                 <include reference="MzD-RQ-6TO"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="T6y-q8-Ti2"/>
+                                <include reference="ruv-mN-yCD"/>
+                                <include reference="PJn-6S-0mD"/>
+                                <include reference="RNK-nz-BYN"/>
                                 <include reference="QNH-z2-eez"/>
                                 <include reference="iKv-os-N3f"/>
                                 <include reference="KZB-bw-HCQ"/>
                                 <include reference="VHF-5N-hXr"/>
                                 <include reference="7o1-Nk-kl2"/>
                                 <include reference="vhW-dl-NTT"/>
-                                <include reference="PJn-6S-0mD"/>
-                                <include reference="RNK-nz-BYN"/>
-                                <include reference="T6y-q8-Ti2"/>
-                                <include reference="ruv-mN-yCD"/>
                             </mask>
                         </variation>
                     </view>
