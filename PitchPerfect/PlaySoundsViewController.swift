@@ -45,9 +45,7 @@ class PlaySoundsViewController: UIViewController {
     */
 
     func playAudo(playRate: Float) {
-        audioPlayer!.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAudioPlayerAndAudioEngine()
         audioPlayer!.rate = playRate
         audioPlayer?.currentTime = 0.0
         audioPlayer?.play()
@@ -62,15 +60,11 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func stopAudio(sender: UIButton) {
-        audioPlayer!.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAudioPlayerAndAudioEngine()
     }
     
     func playAudioWithVariablePitch(pitch: Float){
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+        stopAudioPlayerAndAudioEngine()
         
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -85,6 +79,12 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         try! audioEngine.start()
         audioPlayerNode.play()
+    }
+    
+    func stopAudioPlayerAndAudioEngine() {
+        audioPlayer!.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
     @IBAction func playChipMunkAudio(sender: UIButton) {
