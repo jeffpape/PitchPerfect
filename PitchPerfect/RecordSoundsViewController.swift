@@ -16,6 +16,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
+    var isAudioPaused : Bool = false
 
     override func viewWillAppear(animated: Bool) {
         recordButton.enabled = true
@@ -80,5 +81,20 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             print("Not able to inactivate audo session.")
         }
     }
+    
+    @IBAction func pauseAudio(sender: UIButton) {
+        // pause icon from http://www.freepik.com/free-vectors/icons
+        if (isAudioPaused) {
+            audioRecorder.record()
+            isAudioPaused = false
+            recordingLabel.text = "recording..."
+        } else {
+            audioRecorder.pause()
+            isAudioPaused = true
+            recordingLabel.text = "paused"
+        }
+        print("now audio is paused \(isAudioPaused)")
+    }
+    
 }
 

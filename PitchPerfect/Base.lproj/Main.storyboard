@@ -70,29 +70,41 @@
                                     <rect key="frame" x="168" y="458" width="65" height="17"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4a-yr-dxH" userLabel="pauseButton">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="pause"/>
+                                <connections>
+                                    <action selector="pauseAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gkq-2i-2ex"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="H4a-yr-dxH" firstAttribute="top" secondItem="xkW-hL-fM3" secondAttribute="bottom" constant="8" id="3FM-BO-3BY"/>
                             <constraint firstItem="xkW-hL-fM3" firstAttribute="top" secondItem="UxR-0L-yjB" secondAttribute="bottom" constant="8" symbolic="YES" id="Jtw-Tf-QEG"/>
                             <constraint firstItem="UxR-0L-yjB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NRK-hf-LZC"/>
                             <constraint firstItem="UxR-0L-yjB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dMl-bU-tLw"/>
                             <constraint firstAttribute="bottom" secondItem="cAi-2a-sal" secondAttribute="bottom" constant="20" symbolic="YES" id="qqr-fc-On6" userLabel="Stop Button.bottom = bottom"/>
                             <constraint firstItem="cAi-2a-sal" firstAttribute="centerX" secondItem="xkW-hL-fM3" secondAttribute="centerX" id="tsl-n0-pHo" userLabel="Stop Button.centerX = centerX"/>
                             <constraint firstItem="xkW-hL-fM3" firstAttribute="centerX" secondItem="UxR-0L-yjB" secondAttribute="centerX" id="xPG-X6-hXF" userLabel="Recording Label.centerX = centerX"/>
+                            <constraint firstItem="H4a-yr-dxH" firstAttribute="centerX" secondItem="UxR-0L-yjB" secondAttribute="centerX" id="yZ0-L1-7dk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="UxR-0L-yjB"/>
                                 <exclude reference="cAi-2a-sal"/>
                                 <exclude reference="xkW-hL-fM3"/>
+                                <exclude reference="H4a-yr-dxH"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="NRK-hf-LZC"/>
                                 <exclude reference="dMl-bU-tLw"/>
-                                <exclude reference="qqr-fc-On6"/>
-                                <exclude reference="tsl-n0-pHo"/>
                                 <exclude reference="Jtw-Tf-QEG"/>
                                 <exclude reference="xPG-X6-hXF"/>
+                                <exclude reference="3FM-BO-3BY"/>
+                                <exclude reference="yZ0-L1-7dk"/>
+                                <exclude reference="qqr-fc-On6"/>
+                                <exclude reference="tsl-n0-pHo"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -100,14 +112,17 @@
                                 <include reference="UxR-0L-yjB"/>
                                 <include reference="cAi-2a-sal"/>
                                 <include reference="xkW-hL-fM3"/>
+                                <include reference="H4a-yr-dxH"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="NRK-hf-LZC"/>
                                 <include reference="dMl-bU-tLw"/>
-                                <include reference="qqr-fc-On6"/>
-                                <include reference="tsl-n0-pHo"/>
                                 <include reference="Jtw-Tf-QEG"/>
                                 <include reference="xPG-X6-hXF"/>
+                                <include reference="3FM-BO-3BY"/>
+                                <include reference="yZ0-L1-7dk"/>
+                                <include reference="qqr-fc-On6"/>
+                                <include reference="tsl-n0-pHo"/>
                             </mask>
                         </variation>
                     </view>
@@ -172,12 +187,28 @@
                                     <action selector="playDarthVaderAudio:" destination="z6A-Vi-atw" eventType="touchUpInside" id="iXd-Gx-zxW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKn-V9-8RO" userLabel="reverbButton">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="reverb"/>
+                                <connections>
+                                    <action selector="playReverbAudio:" destination="z6A-Vi-atw" eventType="touchUpInside" id="8bm-Jq-w03"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwv-lQ-eww" userLabel="distortionButton">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="distortion"/>
+                                <connections>
+                                    <action selector="playEchoAudio:" destination="z6A-Vi-atw" eventType="touchUpInside" id="FrX-ia-0Jz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rbG-2L-NcB" firstAttribute="trailing" secondItem="hC3-WQ-sTG" secondAttribute="trailingMargin" constant="30" id="7o1-Nk-kl2">
                                 <variation key="widthClass=compact" constant="-30"/>
                             </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="hwv-lQ-eww" secondAttribute="trailing" constant="60" id="Aa1-LB-LVY"/>
+                            <constraint firstItem="xKn-V9-8RO" firstAttribute="top" secondItem="PMF-JJ-gfh" secondAttribute="bottom" constant="50" id="BNS-Xk-enx"/>
                             <constraint firstItem="PMF-JJ-gfh" firstAttribute="leading" secondItem="hC3-WQ-sTG" secondAttribute="leadingMargin" constant="30" id="KZB-bw-HCQ"/>
                             <constraint firstItem="MzD-RQ-6TO" firstAttribute="top" secondItem="rbG-2L-NcB" secondAttribute="bottom" constant="50" id="PJn-6S-0mD"/>
                             <constraint firstItem="OcT-h7-XMg" firstAttribute="leading" secondItem="hC3-WQ-sTG" secondAttribute="leadingMargin" constant="30" id="QNH-z2-eez"/>
@@ -187,9 +218,11 @@
                             <constraint firstItem="Ku7-o3-SNO" firstAttribute="centerX" secondItem="hC3-WQ-sTG" secondAttribute="centerX" id="T6y-q8-Ti2"/>
                             <constraint firstItem="PMF-JJ-gfh" firstAttribute="top" secondItem="OcT-h7-XMg" secondAttribute="bottom" constant="50" id="VHF-5N-hXr"/>
                             <constraint firstItem="OcT-h7-XMg" firstAttribute="top" secondItem="pgw-dS-Y0t" secondAttribute="bottom" constant="50" id="iKv-os-N3f"/>
+                            <constraint firstItem="hwv-lQ-eww" firstAttribute="top" secondItem="MzD-RQ-6TO" secondAttribute="bottom" constant="60" id="lVz-z9-aML"/>
                             <constraint firstItem="Ku7-o3-SNO" firstAttribute="bottom" secondItem="04Z-Do-Jn8" secondAttribute="top" constant="20" id="ruv-mN-yCD">
                                 <variation key="widthClass=compact" constant="-20"/>
                             </constraint>
+                            <constraint firstItem="xKn-V9-8RO" firstAttribute="leading" secondItem="hC3-WQ-sTG" secondAttribute="leadingMargin" constant="51" id="tNv-2S-exZ"/>
                             <constraint firstItem="rbG-2L-NcB" firstAttribute="top" secondItem="pgw-dS-Y0t" secondAttribute="bottom" constant="50" id="vhW-dl-NTT"/>
                         </constraints>
                         <variation key="default">
@@ -199,18 +232,24 @@
                                 <exclude reference="Ku7-o3-SNO"/>
                                 <exclude reference="PMF-JJ-gfh"/>
                                 <exclude reference="MzD-RQ-6TO"/>
+                                <exclude reference="xKn-V9-8RO"/>
+                                <exclude reference="hwv-lQ-eww"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="T6y-q8-Ti2"/>
-                                <exclude reference="ruv-mN-yCD"/>
-                                <exclude reference="PJn-6S-0mD"/>
-                                <exclude reference="RNK-nz-BYN"/>
                                 <exclude reference="QNH-z2-eez"/>
                                 <exclude reference="iKv-os-N3f"/>
                                 <exclude reference="KZB-bw-HCQ"/>
                                 <exclude reference="VHF-5N-hXr"/>
                                 <exclude reference="7o1-Nk-kl2"/>
                                 <exclude reference="vhW-dl-NTT"/>
+                                <exclude reference="PJn-6S-0mD"/>
+                                <exclude reference="RNK-nz-BYN"/>
+                                <exclude reference="BNS-Xk-enx"/>
+                                <exclude reference="tNv-2S-exZ"/>
+                                <exclude reference="Aa1-LB-LVY"/>
+                                <exclude reference="lVz-z9-aML"/>
+                                <exclude reference="T6y-q8-Ti2"/>
+                                <exclude reference="ruv-mN-yCD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -220,18 +259,24 @@
                                 <include reference="Ku7-o3-SNO"/>
                                 <include reference="PMF-JJ-gfh"/>
                                 <include reference="MzD-RQ-6TO"/>
+                                <include reference="xKn-V9-8RO"/>
+                                <include reference="hwv-lQ-eww"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="T6y-q8-Ti2"/>
-                                <include reference="ruv-mN-yCD"/>
-                                <include reference="PJn-6S-0mD"/>
-                                <include reference="RNK-nz-BYN"/>
                                 <include reference="QNH-z2-eez"/>
                                 <include reference="iKv-os-N3f"/>
                                 <include reference="KZB-bw-HCQ"/>
                                 <include reference="VHF-5N-hXr"/>
                                 <include reference="7o1-Nk-kl2"/>
                                 <include reference="vhW-dl-NTT"/>
+                                <include reference="PJn-6S-0mD"/>
+                                <include reference="RNK-nz-BYN"/>
+                                <include reference="BNS-Xk-enx"/>
+                                <include reference="tNv-2S-exZ"/>
+                                <include reference="Aa1-LB-LVY"/>
+                                <include reference="lVz-z9-aML"/>
+                                <include reference="T6y-q8-Ti2"/>
+                                <include reference="ruv-mN-yCD"/>
                             </mask>
                         </variation>
                     </view>
@@ -262,8 +307,11 @@
     <resources>
         <image name="chipMunk" width="100" height="100"/>
         <image name="darthVader" width="100" height="100"/>
+        <image name="distortion" width="40" height="40"/>
         <image name="microphone" width="100" height="100"/>
+        <image name="pause" width="49" height="49"/>
         <image name="rabbit" width="100" height="100"/>
+        <image name="reverb" width="59" height="59"/>
         <image name="snail" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
     </resources>

@@ -83,4 +83,46 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func playDarthVaderAudio(sender: UIButton) {
         playAudioWithVariablePitch(-1000)
     }
+    
+    @IBAction func playReverbAudio(sender: UIButton) {
+        // reverb icon from Reactable mobile Manual www.reactable.com
+        stopAudioPlayerAndAudioEngine()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+
+        let audioUnitReverb = AVAudioUnitReverb()
+        audioUnitReverb.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
+        audioUnitReverb.wetDryMix = 50
+        audioEngine.attachNode(audioUnitReverb)
+        
+        audioEngine.connect(audioPlayerNode, to: audioUnitReverb, format: nil)
+        audioEngine.connect(audioUnitReverb, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        try! audioEngine.start()
+        audioPlayerNode.play()
+    }
+    
+    @IBAction func playEchoAudio(sender: UIButton) {
+        // distortion icon from Calf Studio Gear - GNU/Linux Audio Plug-Ins
+        stopAudioPlayerAndAudioEngine()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        let audioUnitDistortion = AVAudioUnitDistortion()
+        audioUnitDistortion.loadFactoryPreset(AVAudioUnitDistortionPreset.DrumsBitBrush)
+        audioUnitDistortion.preGain = -6
+        audioUnitDistortion.wetDryMix = 50
+        audioEngine.attachNode(audioUnitDistortion)
+        
+        audioEngine.connect(audioPlayerNode, to: audioUnitDistortion, format: nil)
+        audioEngine.connect(audioUnitDistortion, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        try! audioEngine.start()
+        audioPlayerNode.play()
+    }
+    
 }
